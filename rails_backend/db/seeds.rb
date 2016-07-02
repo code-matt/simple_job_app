@@ -5,9 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Job.create([
-  { name: 'Job Title 1' },
-  { name: 'Job Title 2' },
-  { name: 'Job Title 3' },
-  { name: 'Job Title 4' },
-])
+Job.create(
+  name: 'job title 1',
+  description: 'painting a fence',
+  wage: 15.25)
+Job.create(
+  name: 'job title 2',
+  description: 'moving some furniture',
+  wage: 13.25)
+Job.create(
+  name: 'job title 3',
+  description: 'shoveling some snow',
+  wage: 11.25)

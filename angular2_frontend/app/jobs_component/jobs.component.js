@@ -34,7 +34,7 @@ System.register(['@angular/core', '../common/jobs.service', '@angular/http'], fu
                 JobsComponent = __decorate([
                     core_1.Component({
                         selector: 'jobs',
-                        template: "\n  <ul>\n  <li *ngFor=\"let job of jobs; let i = index\">\n    {{i}} {{job.name}}\n  </li>\n  </ul>\n  ",
+                        template: "\n  <ul>\n  <li *ngFor=\"let job of jobs; let i = index\">\n    {{job.name}}\n    {{job.description}}\n    {{job.wage}}\n  </li>\n  </ul>\n  ",
                         providers: [jobs_service_1.JobsService, http_1.HTTP_PROVIDERS]
                     }), 
                     __metadata('design:paramtypes', [jobs_service_1.JobsService])

@@ -7,7 +7,9 @@ import {HTTP_PROVIDERS} from '@angular/http'
   template: `
   <ul>
   <li *ngFor="let job of jobs; let i = index">
-    {{i}} {{job.name}}
+    {{job.name}}
+    {{job.description}}
+    {{job.wage}}
   </li>
   </ul>
   `,
