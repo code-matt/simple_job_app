@@ -1,0 +1,11 @@
+<div *ngFor="let job of jobs; let i = index" class="media">
+  <div class="media-left">
+    {{i}}
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      {{ job.name }} <span class="handle">{{ job.wage }}</span>
+    </h4>
+    {{ job.description }}
+  </div>
+</div>

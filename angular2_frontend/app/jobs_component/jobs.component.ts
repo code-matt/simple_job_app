@@ -4,15 +4,8 @@ import {HTTP_PROVIDERS} from '@angular/http'
 
 @Component({
   selector: 'jobs',
-  template: `
-  <ul>
-  <li *ngFor="let job of jobs; let i = index">
-    {{job.name}}
-    {{job.description}}
-    {{job.wage}}
-  </li>
-  </ul>
-  `,
+  templateUrl: 'app/jobs_component/jobs.component.html',
+  styleUrls: ['app/jobs_component/jobs.component.css'],
   providers: [JobsService, HTTP_PROVIDERS]
 
 })
