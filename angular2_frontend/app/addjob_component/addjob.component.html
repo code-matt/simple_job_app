@@ -1,4 +1,4 @@
-<form [ngFormModel]="form" #jobform="ngForm">
+<form [ngFormModel]="form" #jobform="ngForm" (ngSubmit)="postJob(jobform.form.value)">
   <div class="row">
     <div class="col-md-6 col-sm-4 well">
       <div class="form-group">

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '../common/jobs.service', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1, common_1, jobs_service_1, http_1;
     var AddJobComponent;
     return {
         setters:[
@@ -19,21 +19,34 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (jobs_service_1_1) {
+                jobs_service_1 = jobs_service_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             AddJobComponent = (function () {
-                function AddJobComponent() {
+                function AddJobComponent(_jobsService) {
+                    this._jobsService = _jobsService;
                     this.form = new common_1.ControlGroup({
                         name: new common_1.Control('', common_1.Validators.required),
                         description: new common_1.Control('', common_1.Validators.required)
                     });
                 }
+                AddJobComponent.prototype.postJob = function (data) {
+                    console.log(data);
+                    this._jobsService.postJob(data)
+                        .subscribe(function (res) { return console.log(res); });
+                };
                 AddJobComponent = __decorate([
                     core_1.Component({
                         selector: 'addnew',
-                        templateUrl: 'app/addjob_component/addjob.component.html'
+                        templateUrl: 'app/addjob_component/addjob.component.html',
+                        providers: [jobs_service_1.JobsService, http_1.HTTP_PROVIDERS]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [jobs_service_1.JobsService])
                 ], AddJobComponent);
                 return AddJobComponent;
             }());

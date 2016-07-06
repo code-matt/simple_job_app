@@ -30,6 +30,13 @@ System.register(['@angular/http', '@angular/core', 'rxjs/add/operator/map'], fun
                     return this._http.get("http://localhost:8000/jobs")
                         .map(function (res) { return res.json(); });
                 };
+                JobsService.prototype.postJob = function (data) {
+                    var body = JSON.stringify(data);
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers, method: "post" });
+                    return this._http.post("http://localhost:8000/jobs", body, options)
+                        .map(function (res) { return res.json(); });
+                };
                 JobsService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
