@@ -10,7 +10,14 @@
         <label for="jobDescription">Description</label>
         <textarea id="jobDescription" class="form-control" ngControl="description" #description="ngForm"></textarea>
         <div *ngIf="!description.valid" class="alert alert-danger">Description is required</div>
+      <div class="form-group">
+        <label for="wage">Hourly Wage</label>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input id="wage" ngControl="wage" type="number" data-number-to-fixed="2" data-number-stepfactor="1" class="currency"/>
+        </div>
         <div *ngIf="errors.wage" class="alert alert-danger">Wage must be higher than 15.00</div>
+      </div>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!jobform.valid">Submit</button>
     </div>

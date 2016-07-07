@@ -6,7 +6,8 @@ import {HTTP_PROVIDERS} from '@angular/http'
 @Component({
   selector: 'addnew',
   templateUrl: 'app/addjob_component/addjob.component.html',
-  providers: [JobsService, HTTP_PROVIDERS]
+  providers: [JobsService, HTTP_PROVIDERS],
+  styleUrls: ['app/addjob_component/addjob.component.css']
 })
 export class AddJobComponent {
 
@@ -18,7 +19,8 @@ export class AddJobComponent {
 
   form = new ControlGroup({
     name: new Control('',Validators.required),
-    description: new Control('',Validators.required)
+    description: new Control('',Validators.required),
+    wage: new Control('0.00',Validators.required)
   });
 
   postJob(data){

@@ -33,7 +33,8 @@ System.register(['@angular/core', '@angular/common', '../common/jobs.service', '
                     this.errors = {};
                     this.form = new common_1.ControlGroup({
                         name: new common_1.Control('', common_1.Validators.required),
-                        description: new common_1.Control('', common_1.Validators.required)
+                        description: new common_1.Control('', common_1.Validators.required),
+                        wage: new common_1.Control('0.00', common_1.Validators.required)
                     });
                 }
                 AddJobComponent.prototype.postJob = function (data) {
@@ -49,7 +50,8 @@ System.register(['@angular/core', '@angular/common', '../common/jobs.service', '
                     core_1.Component({
                         selector: 'addnew',
                         templateUrl: 'app/addjob_component/addjob.component.html',
-                        providers: [jobs_service_1.JobsService, http_1.HTTP_PROVIDERS]
+                        providers: [jobs_service_1.JobsService, http_1.HTTP_PROVIDERS],
+                        styleUrls: ['app/addjob_component/addjob.component.css']
                     }), 
                     __metadata('design:paramtypes', [jobs_service_1.JobsService])
                 ], AddJobComponent);
