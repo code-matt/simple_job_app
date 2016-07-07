@@ -10,6 +10,7 @@
         <label for="jobDescription">Description</label>
         <textarea id="jobDescription" class="form-control" ngControl="description" #description="ngForm"></textarea>
         <div *ngIf="!description.valid" class="alert alert-danger">Description is required</div>
+        <div *ngIf="errors.wage" class="alert alert-danger">Wage must be higher than 15.00</div>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!jobform.valid">Submit</button>
     </div>

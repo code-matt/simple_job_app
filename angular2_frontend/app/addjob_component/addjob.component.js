@@ -30,15 +30,20 @@ System.register(['@angular/core', '@angular/common', '../common/jobs.service', '
             AddJobComponent = (function () {
                 function AddJobComponent(_jobsService) {
                     this._jobsService = _jobsService;
+                    this.errors = {};
                     this.form = new common_1.ControlGroup({
                         name: new common_1.Control('', common_1.Validators.required),
                         description: new common_1.Control('', common_1.Validators.required)
                     });
                 }
                 AddJobComponent.prototype.postJob = function (data) {
+                    var _this = this;
                     console.log(data);
                     this._jobsService.postJob(data)
-                        .subscribe(function (res) { return console.log(res); });
+                        .subscribe(function (res) { return console.log(res); }, function (err) {
+                        _this.errors = JSON.parse(err._body);
+                        console.log(_this.errors);
+                    });
                 };
                 AddJobComponent = __decorate([
                     core_1.Component({

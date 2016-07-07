@@ -10,6 +10,8 @@ import {HTTP_PROVIDERS} from '@angular/http'
 })
 export class AddJobComponent {
 
+  errors = {}
+
   constructor(private _jobsService: JobsService){
 
   }
@@ -22,7 +24,11 @@ export class AddJobComponent {
   postJob(data){
     console.log(data);
     this._jobsService.postJob(data)
-      .subscribe(res => console.log(res))
+      .subscribe(res => console.log(res),
+        err => {
+          this.errors = JSON.parse(err._body)
+          console.log(this.errors)
+        })
   }
 
 }
